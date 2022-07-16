@@ -3,7 +3,6 @@ import {View, Text} from 'react-native';
 import styles from './styles';
 import PropTypes from 'prop-types';
 const ScreenHeader = ({title=''}) => {
-    console.log(title)
   return (
     <View
       style={styles.title}>

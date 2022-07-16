@@ -5,7 +5,7 @@ import microphone from '../../assets/images/microphone.png';
 import styles from './styles';
 import FastImage from 'react-native-fast-image';
 
- const VoiceNative =()=> {
+ const SearchScreen =()=> {
   const [pitch, setPitch] = useState('');
   const [error, setError] = useState('');
   const [end, setEnd] = useState('');
@@ -213,4 +213,4 @@ import FastImage from 'react-native-fast-image';
   )
 
 }
-export default VoiceNative;
+export default SearchScreen;

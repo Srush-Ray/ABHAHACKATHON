@@ -8,8 +8,7 @@
 
 import React from 'react';
 // import type {Node} from 'react';
-import VoiceNative from './app/search/index';
-import HomeScreen from './app/home-screen/index'
+import HomeScreen from './app/home-screen/index';
 import {
   SafeAreaView,
   ScrollView,
@@ -27,7 +26,11 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import SearchScreen from './app/search/index';
+import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -37,11 +40,19 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={{flex:1}}>
-     {/* <VoiceNative/>
-      */}
-      <HomeScreen/>
-    </SafeAreaView>
+    <NavigationContainer>
+       <Stack.Navigator
+            initialRouteName="App"
+            screenOptions={{
+                headerShown: false,
+              }}>
+                 <Stack.Screen name="Search" component={SearchScreen} />
+              </Stack.Navigator>
+              
+      <SafeAreaView style={{flex: 1}}>
+        <HomeScreen />
+      </SafeAreaView>
+    </NavigationContainer>
   );
 };
 

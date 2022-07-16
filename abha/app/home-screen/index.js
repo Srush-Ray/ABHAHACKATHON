@@ -1,11 +1,29 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text,TouchableOpacity} from 'react-native';
 import ScreenHeader from '../screen-header';
 import styles from './styles';
 const HomeScreen = () => {
+    const navigation=useNavigation();
   return (
     <View style={styles.homeViewContainer}>
    <ScreenHeader title='BFHL'/>
+   <View style={styles.horizontalView}>
+   <TouchableOpacity style={styles.boxContainer}
+   onPress={()=>{
+    //    navigation.navigate();
+   }}
+   >
+       <Text>
+           My Records
+       </Text>
+   </TouchableOpacity>
+   <TouchableOpacity style={styles.boxContainer}>
+       <Text>
+           My Providers
+       </Text>
+   </TouchableOpacity>
+   </View>
     </View>
   );
 };
