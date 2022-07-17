@@ -21,7 +21,13 @@ import axios from 'axios';
   //   const { data } = await axios.get('https://bfhldevapigw.healthrx.co.in/labs/v1/admin/provider');
   //   console.log('api',data);
   // }
-  // fetchData();
+  // useEffect(() => {
+    
+  
+  //   fetchData();
+    
+  // }, []);
+  
   const { data, isLoading, isSuccess } = useSearchResults();
 
   const [partialResults, setPartialResults] = useState([]);

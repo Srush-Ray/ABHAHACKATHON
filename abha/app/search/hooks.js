@@ -7,6 +7,6 @@ const fetchSearchResults = async () => {
     return data;
 };
 
-const useSearchResults = () => useQuery('posts', fetchSearchResults);
+const useSearchResults = () => useQuery('posts', ()=>fetchSearchResults());
 
 export default useSearchResults;

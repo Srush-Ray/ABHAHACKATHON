@@ -44,9 +44,8 @@ const App = () => {
   };
 
   return (
-    <NavigationContainer>
       <QueryClientProvider client={queryClient}>
-
+    <NavigationContainer>
        <Stack.Navigator
             initialRouteName="App"
             screenOptions={{
@@ -56,8 +55,8 @@ const App = () => {
                 {/* <Stack.Screen name="Home" component={HomeScreen} /> */}
                  <Stack.Screen name="Search" component={SearchScreen} />
               </Stack.Navigator>
-                </QueryClientProvider>
     </NavigationContainer>
+                </QueryClientProvider>
   );
 };
 
