@@ -11,14 +11,18 @@ const HomeScreen = () => {
    <View style={styles.horizontalView}>
    <TouchableOpacity style={styles.boxContainer}
    onPress={()=>{
-    //    navigation.navigate();
+       navigation.navigate('Search');
    }}
    >
        <Text>
            My Records
        </Text>
    </TouchableOpacity>
-   <TouchableOpacity style={styles.boxContainer}>
+   <TouchableOpacity 
+   onPress={()=>{
+    navigation.navigate('Search');
+}}
+   style={styles.boxContainer}>
        <Text>
            My Providers
        </Text>

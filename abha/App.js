@@ -17,6 +17,7 @@ import {
   Text,
   useColorScheme,
   View,
+  LogBox
 } from 'react-native';
 
 import {
@@ -29,8 +30,11 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import SearchScreen from './app/search/index';
 import { createNativeStackNavigator } from 'react-native-screens/native-stack';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
+LogBox.ignoreAllLogs();
 const Stack = createNativeStackNavigator();
+const queryClient = new QueryClient();
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -41,17 +45,18 @@ const App = () => {
 
   return (
     <NavigationContainer>
+      <QueryClientProvider client={queryClient}>
+
        <Stack.Navigator
             initialRouteName="App"
             screenOptions={{
-                headerShown: false,
-              }}>
+              headerShown: false,
+            }}>
+                <Stack.Screen name="Home" component={HomeScreen} />
+                {/* <Stack.Screen name="Home" component={HomeScreen} /> */}
                  <Stack.Screen name="Search" component={SearchScreen} />
               </Stack.Navigator>
-              
-      <SafeAreaView style={{flex: 1}}>
-        <HomeScreen />
-      </SafeAreaView>
+                </QueryClientProvider>
     </NavigationContainer>
   );
 };

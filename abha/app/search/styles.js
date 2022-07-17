@@ -2,6 +2,7 @@
 import {
 StyleSheet,
   } from 'react-native';
+import { scale } from '../utils';
 
 const styles = StyleSheet.create({
     container: {
@@ -9,6 +10,18 @@ const styles = StyleSheet.create({
       flexDirection: 'column',
       alignItems: 'center',
       padding: 5,
+    },
+    resultEachContainer:{
+        borderBottomColor:'#adb3af',
+        borderBottomWidth:0.5,
+    },
+    resultHeader:{
+      paddingVertical:scale(5),
+      backgroundColor:'#adb3af',
+      paddingLeft:scale(10),
+    },
+    resultHeaderText:{
+      fontWeight:'bold',
     },
     headerContainer: {
       flexDirection: 'row',
@@ -39,7 +52,8 @@ const styles = StyleSheet.create({
       bottom: 0,
     },
     textStyle: {
-      textAlign: 'center',
+      textAlign: 'left',
+      paddingLeft:scale(30),
       padding: 12,
     },
     imageButton: {
