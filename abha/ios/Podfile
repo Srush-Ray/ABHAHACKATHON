@@ -14,8 +14,6 @@ target 'abha' do
 
   pod 'react-native-voice', :path => '../node_modules/@react-native-voice/voice'
 
-  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
-
   target 'abhaTests' do
     inherit! :complete
     # Pods for testing
