@@ -9,11 +9,12 @@ const styles = StyleSheet.create({
         paddingVertical:20,
         justifyContent:'center',
         alignItems:'center',
-        backgroundColor:'#9267d6'
+        backgroundColor:'#ABC9FF'
     },
     titleText:{
         fontSize:20,
-        fontWeight:'bold'
+        fontWeight:'bold',
+        color:'black'
     }
 });
 

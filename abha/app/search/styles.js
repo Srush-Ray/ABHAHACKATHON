@@ -14,14 +14,15 @@ const styles = StyleSheet.create({
     resultEachContainer:{
         borderBottomColor:'#adb3af',
         borderBottomWidth:0.5,
+        flexDirection:'row'
     },
     resultHeader:{
       paddingVertical:scale(5),
-      backgroundColor:'#adb3af',
+      // backgroundColor:'#88a0cc',
       paddingLeft:scale(10),
     },
-    resultHeaderText:{
-      fontWeight:'bold',
+    suggestTextView:{
+      marginHorizontal:scale(10)
     },
     headerContainer: {
       flexDirection: 'row',
@@ -55,6 +56,13 @@ const styles = StyleSheet.create({
       textAlign: 'left',
       paddingLeft:scale(30),
       padding: 12,
+    },
+    selectView:{
+      flexDirection:'row'
+    },
+    searchIcon:{
+      width: 50,
+      height: 50,
     },
     imageButton: {
       width: 50,

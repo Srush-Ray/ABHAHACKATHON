@@ -9,6 +9,8 @@ import microphone from '../../../assets/images/microphone.png';
 import Voice from '@react-native-voice/voice';
 // import Card from './card';
 import styles from './styles';
+import { Text } from 'native-base';
+import { scale } from '../../utils';
 
 const greyWhite='#eee';
 const colorCongratsRelation='#979797';
@@ -25,7 +27,9 @@ const SearchBar = ({
     setPartialResults,
     partialResults,
     results,
-    setResults
+    setResults,
+    handleIconPress,
+    clearData
 }) => {
     const [isInputFocused, setIsInputFocused] = useState(false);
     const textInputRef = useRef();
@@ -39,12 +43,14 @@ const SearchBar = ({
     };
 
     const handleLeftIconPress = () => {
-        textInputRef.current.focus();
+        // textInputRef.current.focus();
+        handleIconPress();
     };
 
     const handleRightIconPress = () => {
         textInputRef.current.clear();
         handleInputTextChange('');
+        clearData();
     };
 
     const getPlaceholderText = val => {
@@ -67,40 +73,32 @@ const SearchBar = ({
 
   const onSpeechStart = (e) => {
     //Invoked when .start() is called without error
-    console.log('onSpeechStart: ', e);
     setStarted('√');
   };
  
   const onSpeechEnd = (e) => {
     //Invoked when SpeechRecognizer stops recognition
-    console.log('onSpeechEnd: ', e);
     setEnd('√');
   };
  
   const onSpeechError = (e) => {
     //Invoked when an error occurs.
-    console.log('onSpeechError: ', e);
     setError(JSON.stringify(e.error));
   };
  
   const onSpeechResults = (e) => {
     //Invoked when SpeechRecognizer is finished recognizing
-    console.log('onSpeechResults: ', e);
-    console.log(e.value);
     setResults(e.value);
 
   };
  
   const onSpeechPartialResults = (e) => {
     //Invoked when any results are computed
-    console.log('onSpeechPartialResults: ', e);
-    console.log(e.value);
     setPartialResults(e.value);
   };
  
   const onSpeechVolumeChanged = (e) => {
     //Invoked when pitch that is recognized changed
-    console.log('onSpeechVolumeChanged: ', e);
     setPitch(e.value);
   };
  
@@ -115,6 +113,7 @@ const SearchBar = ({
       setPartialResults([]);
       setEnd('');
       setLoading(true);
+      handleInputTextChange('')
     } catch (e) {
       //eslint-disable-next-line
       console.error(e);
@@ -164,7 +163,6 @@ const SearchBar = ({
         handleInputTextChange(partialResults?.[0]);
     }
   }, [partialResults?.length,results?.length])
-  console.log(loading)
   useEffect(() => {
     if(loading){
         handleInputTextChange('...');
@@ -190,7 +188,10 @@ const SearchBar = ({
        <View
        style={styles.searchViewContainer}
        >
-         <TouchableHighlight
+         <View 
+         style={styles.searchBar}
+         >
+        <TouchableHighlight
                         style={styles.searcBarHighlight}
                         underlayColor={greyWhite}
                         onPress={handleLeftIconPress}
@@ -242,14 +243,19 @@ const SearchBar = ({
                             style={styles.searchIcon}
                             testID="components-custom-search-bar-index-view-5"
                             accessibilityLabel="components-custom-search-bar-index-view-10">
-                            <FastImage
-                                source={crossImage}
-                                resizeMode='contain'
-                                style={styles.imageCancel}
-                            /> 
+
+                               <FastImage
+                               source={crossImage}
+                               resizeMode='contain'
+                               style={styles.imageCancel}
+                           />
+                                
+
                         </View>
                     </TouchableHighlight>
                 )}
+        </View>
+
        </View>
     );
 };
@@ -266,7 +272,9 @@ SearchBar.propTypes = {
     partialResults:PropTypes.array,
     setPartialResults:PropTypes.func,
     results:PropTypes.array,
-    setResults:PropTypes.func
+    setResults:PropTypes.func,
+    handleIconPress:PropTypes.func,
+    clearData:PropTypes.func
 };
 
 SearchBar.defaultProps = {
@@ -281,7 +289,9 @@ SearchBar.defaultProps = {
     partialResults:[],
     setPartialResults:()=>{},
     results:[],
-    setResults:()=>{}
+    setResults:()=>{},
+    handleIconPress:()=>{},
+    clearData:()=>{}
 };
 
 export default SearchBar;

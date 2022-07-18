@@ -41,6 +41,10 @@ const styles = StyleSheet.create({
         width: scale(20),
         height: scale(20),
       },
+      imageButtonTrain:{
+        width: scale(60),
+        height: scale(60),
+      },
     searcBarHighlight: {
         marginLeft: scale(5),
         borderRadius: scale(30),
@@ -52,17 +56,27 @@ const styles = StyleSheet.create({
         paddingLeft: 0,
         color: colorBlack2,
         textAlign: 'left',
-        fontSize: scale(12),
+        fontSize: scale(14),
         // width:scale(130)
     },
     searchViewContainer:{
-        marginTop:scale(10),
-        paddingHorizontal:scale(10),
+        paddingVertical:scale(15),
+        paddingHorizontal:scale(20),
         flexDirection:'row',
         justifyContent:'center',
         alignItems:'center',
         borderBottomColor:'grey',
-        borderBottomWidth:1,
+        borderBottomWidth:0.5,
+        backgroundColor:'#ABC9FF'
+    },
+    searchBar:{
+        flexDirection:'row',
+        justifyContent:'center',
+        alignItems:'center',
+        borderBottomColor:'grey',
+        backgroundColor:'white',
+        borderRadius:scale(20),
+        paddingHorizontal:scale(10)
     },
     flexSearch: {
         flex: 1,

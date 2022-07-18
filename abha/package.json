@@ -15,14 +15,18 @@
     "@react-navigation/native-stack": "^6.7.0",
     "@react-navigation/stack": "^5.14.3",
     "axios": "^0.27.2",
+    "lodash": "^4.17.21",
     "native-base": "2.13.4",
     "prop-types": "^15.8.1",
     "react": "17.0.1",
     "react-native": "0.64.2",
     "react-native-fast-image": "^8.5.11",
+    "react-native-pdf": "^6.5.0",
     "react-native-safe-area-context": "3.4.1",
     "react-native-screens": "3.10.1",
-    "react-query": "^3.32.1"
+    "react-native-select-dropdown": "^2.0.4",
+    "react-query": "^3.32.1",
+    "@react-native-community/async-storage": "1.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",

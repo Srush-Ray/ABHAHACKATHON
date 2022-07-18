@@ -31,6 +31,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import SearchScreen from './app/search/index';
 import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import VoicePresciptionScreen from './app/voice-prescription';
+import DoctorView from './app/search/doctor-view';
 
 LogBox.ignoreAllLogs();
 const Stack = createNativeStackNavigator();
@@ -44,8 +46,8 @@ const App = () => {
   };
 
   return (
-      <QueryClientProvider client={queryClient}>
     <NavigationContainer>
+       <QueryClientProvider client={queryClient}>
        <Stack.Navigator
             initialRouteName="App"
             screenOptions={{
@@ -54,9 +56,11 @@ const App = () => {
                 <Stack.Screen name="Home" component={HomeScreen} />
                 {/* <Stack.Screen name="Home" component={HomeScreen} /> */}
                  <Stack.Screen name="Search" component={SearchScreen} />
+                 <Stack.Screen name="VoicePresciptionScreen" component={VoicePresciptionScreen} />
+                 <Stack.Screen name="DoctorView" component={DoctorView} />
               </Stack.Navigator>
+              </QueryClientProvider>
     </NavigationContainer>
-                </QueryClientProvider>
   );
 };
 
