@@ -21,7 +21,6 @@
     "react": "17.0.1",
     "react-native": "0.64.2",
     "react-native-fast-image": "^8.5.11",
-    "react-native-pdf": "^6.5.0",
     "react-native-safe-area-context": "3.4.1",
     "react-native-screens": "3.10.1",
     "react-native-select-dropdown": "^2.0.4",
