@@ -20,6 +20,11 @@ imageButton: {
     borderBottomColor:'#adb3af',
     borderBottomWidth:0.5,
 },
+prescriptionIcon:{
+  width: scale(30),
+  height: scale(30),
+  marginRight:scale(10)
+},
 resultHeader:{
   paddingVertical:scale(5),
   // backgroundColor:'#88a0cc',

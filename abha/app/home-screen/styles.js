@@ -13,6 +13,12 @@ const styles = StyleSheet.create({
         width:scale(20),
         marginRight:scale(10),
     },
+    nhaIcon:{
+        height:scale(200),
+        width:scale(200),
+        justifyContent:'center',
+        alignSelf:'center'
+    },
     boxContainer:{
         flexDirection:'row',
         borderRadius:scale(10),

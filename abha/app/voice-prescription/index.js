@@ -10,6 +10,7 @@ import {
   TextInput,
   Dimensions,
   ScrollView,
+  
 } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown';
 import {useMutation} from 'react-query';
@@ -20,7 +21,7 @@ import microphone from '../../assets/images/microphone.png';
 import FastImage from 'react-native-fast-image';
 import styles from './styles';
 import {scale} from '../utils';
-import rightArrow from '../../assets/images/right-arrow.webp';
+import prescriptionIcon from '../../assets/images/prescription.webp';
 import {isEmpty} from 'lodash';
 const tags = ['PROBLEM', 'DRUG', 'STRENGTH', 'FREQUENCY', 'DURATION', 'TEST'];
 const VoicePresciptionScreen = () => {
@@ -87,7 +88,9 @@ const VoicePresciptionScreen = () => {
       setPartialResults([]);
       setEnd('');
       setLoading(true);
-      handleInputTextChange('');
+      setPrescription({});
+      setShowResults(false);
+      setInputText('');
     } catch (e) {
       //eslint-disable-next-line
       console.error(e);
@@ -124,6 +127,9 @@ const VoicePresciptionScreen = () => {
       setResults([]);
       setPartialResults([]);
       setEnd('');
+      setPrescription({});
+      setShowResults(false);
+      setInputText('');
     } catch (e) {
       //eslint-disable-next-line
       console.error(e);
@@ -137,13 +143,13 @@ const VoicePresciptionScreen = () => {
     ) {
       setLoading(false);
     }
-    if (partialResults.length > 0 && !!partialResults?.[0]) {
-      handleInputTextChange(partialResults?.[0]);
-    }
+    // if (partialResults.length > 0 && !!partialResults?.[0]) {
+    //   handleInputTextChange(partialResults?.[0]);
+    // }
   }, [partialResults?.length, results?.length]);
   useEffect(() => {
     if (loading) {
-      handleInputTextChange('...');
+      handleInputTextChange('loading...');
     }
   }, [loading]);
 
@@ -163,7 +169,7 @@ const VoicePresciptionScreen = () => {
   }, []);
 
   const {mutate: fetchPrescriptionVoice, isLoading: loadingSuggestions} =
-    useMutation(() => fetchPrescription({text: inputText}), {
+    useMutation((text) => fetchPrescription({text: text}), {
       onSuccess: data => {
         console.log('auto', data?.data);
         if (!isEmpty(data?.data)) {
@@ -180,10 +186,12 @@ const VoicePresciptionScreen = () => {
     if (!!result) {
       handleInputTextChange(result);
       setResults([]);
-      await fetchPrescriptionVoice();
+      setPartialResults([]);
+      await fetchPrescriptionVoice(result);
     }
   };
   const handleClear = () => {
+    destroyRecognizer();
     setResults([]);
     setPartialResults([]);
     setPrescription({});
@@ -250,7 +258,7 @@ const VoicePresciptionScreen = () => {
               }}>{`Input : ${inputText}`}</Text>
           </View>
 
-          <View style={styles.selectView}>
+          {/* <View style={styles.selectView}>
             <SelectDropdown
               data={tags}
               onSelect={(selectedItem, index) => {
@@ -276,18 +284,14 @@ const VoicePresciptionScreen = () => {
                 return item;
               }}
             />
-          </View>
+          </View> */}
         </View>
       )}
 
       {partialResults?.map((result, index) => {
         return (
           <TouchableOpacity
-            // onPress={() => {
-            //   if (!!result) {
-            //     handleSearchBarTextChange(result);
-            //   }
-            // }}
+          onPress={() => voiceResultsPress(result)}
             style={styles.resultEachContainer}
             key={`partial-result-${index}`}>
             <Text style={styles.textStyle}>{result}</Text>
@@ -312,10 +316,36 @@ const VoicePresciptionScreen = () => {
           </TouchableOpacity>
         );
       })}
-
+{loadingSuggestions && <View>
+  <Text>Generating Prescription...</Text>
+  </View>}
       {showResults && !isEmpty(prescription?.prescriptionData) && (
         <View>
+          
           <Text style={styles.headerText}>Generated Prescription:</Text>
+          {!isEmpty(prescription?.pdfURL) && 
+          <View style={
+            {
+              flexDirection:'row',
+              alignItems:'center',
+              justifyContent:'space-around'
+            }
+          }>
+            <FastImage
+          source={prescriptionIcon}
+          resizeMode='contain'
+          style={styles.prescriptionIcon}
+          />
+          <Text
+          style={{textAlign:'center',
+        width:scale(280)
+        }}
+          >
+{prescription?.pdfURL}
+    </Text>
+    
+    </View>
+    }
           {Object.keys(prescription?.prescriptionData)?.map((key, index) => {
             return (
               <View
@@ -331,7 +361,8 @@ const VoicePresciptionScreen = () => {
                     <Text
                       style={{
                         fontWeight: 'bold',
-                        fontSize: scale(18),
+                        fontSize: scale(14),
+                        marginVertical:scale(10)
                       }}>
                       {key}
                     </Text>
@@ -339,7 +370,7 @@ const VoicePresciptionScreen = () => {
                       return (
                         <View key={`sublabel${index}`}>
                           <Text>
-                            {res?.label}: {res?.text}
+                            {res?.label}: {res?.text || res?.name}
                           </Text>
                         </View>
                       );

@@ -5,6 +5,7 @@ import FastImage from 'react-native-fast-image';
 import ScreenHeader from '../screen-header';
 import styles from './styles';
 import records from '../../assets/images/records.webp';
+import nha from '../../assets/images/nha.webp';
 import search from '../../assets/images/search.webp';
 import prescription from '../../assets/images/prescription.webp';
 
@@ -14,6 +15,11 @@ const HomeScreen =  () => {
   return (
     <View style={styles.homeViewContainer}>
       <ScreenHeader title="BFHL" />
+      <FastImage
+        source={nha}
+        resizeMode='contain'
+        style={styles.nhaIcon}
+      />
       <View style={styles.horizontalView}>
         <TouchableOpacity
           onPress={() => {

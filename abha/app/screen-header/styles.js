@@ -1,20 +1,24 @@
 import {StyleSheet} from 'react-native';
+import { scale } from '../utils';
 
 const styles = StyleSheet.create({
-    homeViewContainer:{
-        flex:1,
-        // backgroundColor:''
-    }, 
     title:{
-        paddingVertical:20,
-        justifyContent:'center',
+        flexDirection:'row',
         alignItems:'center',
-        backgroundColor:'#ABC9FF'
+        backgroundColor:'#ABC9FF',
+        justifyContent:'space-between',
+        paddingHorizontal:scale(20)
+    },
+    appLogo:{
+        height:scale(50),
+        width:scale(50),
+    },
+    textView:{
     },
     titleText:{
         fontSize:20,
         fontWeight:'bold',
-        color:'black'
+        color:'black',
     }
 });
 
