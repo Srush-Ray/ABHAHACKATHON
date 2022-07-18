@@ -1,5 +1,0 @@
-description of variables containing api keys:
-
-bingmap_apikey: api key used for extracting latlong using bing maps
-bing_spellcheck: api key used for spell check using bing spell check
-elasti_private_key - key used for ssl connection with elastic search
