@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
         paddingVertical:scale(10),
         paddingHorizontal:scale(15),
         marginTop:scale(30),
-        // marginHorizontal:scale(50),
         width:scale(250),
         height:scale(70),
         alignItems:'center',

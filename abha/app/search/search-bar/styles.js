@@ -57,7 +57,6 @@ const styles = StyleSheet.create({
         color: colorBlack2,
         textAlign: 'left',
         fontSize: scale(14),
-        // width:scale(130)
     },
     searchViewContainer:{
         paddingVertical:scale(15),

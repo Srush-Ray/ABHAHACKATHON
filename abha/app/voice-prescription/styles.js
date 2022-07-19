@@ -12,7 +12,6 @@ imageButton: {
   },
   containerView: {
     paddingVertical:scale(20),
-    // alignItems:'center',
     justifyContent:'center',
     color: '#B0171F',
   },
@@ -27,7 +26,6 @@ prescriptionIcon:{
 },
 resultHeader:{
   paddingVertical:scale(5),
-  // backgroundColor:'#88a0cc',
   paddingLeft:scale(10),
 },
 searchbarText:{
@@ -60,7 +58,6 @@ headerText:{
 },
 prescriotionHeaders:{
   paddingLeft:scale(20),
-  // borderBottomWidth:0.5,
   paddingVertical:scale(5)
 },
 

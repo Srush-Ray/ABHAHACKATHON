@@ -46,7 +46,6 @@ const SearchScreen = () => {
     () => fetchSearchResultsQuery({query: debounceSearchText}),
     {
       onSuccess: data => {
-        console.log('auto', data?.data);
         if (!isEmpty(data?.data) && data?.data?.documents?.length > 0) {
           setAutoSuggest(data?.data?.documents);
         }
@@ -61,7 +60,6 @@ const SearchScreen = () => {
     () => fetchSelectedResultsQuery({query: inputText}),
     {
       onSuccess: data => {
-        console.log('search', data?.data);
         if (!isEmpty(data?.data)) {
           setSearchResult(data?.data);
           setShowResults(true);
@@ -74,25 +72,10 @@ const SearchScreen = () => {
     },
   );
 
-  // const fetchSelectedData = async () => {
-  //   console.log('here checlk', inputText);
-  //   const {data} = await axios.post(
-  //     'https://bfhldevapigw.healthrx.co.in/uhi-intelligent-search/send-request',
-  //     {query: inputText},
-  //   );
-  //   setSearchResult(data);
-  // };
-  // useEffect(() => {
-  //   if (!isEmpty(searchResult)) {
-  //     setFinalSearchResult(searchResult);
-  //   }
-  // }, [searchResult]);
-
   useEffect(() => {
     if (debounceSearchText?.length > 0) searchAutoSuggest();
   }, [debounceSearchText]);
 
-  // const { data, isLoading, isSuccess } = useSearchResults();
 
   const handleAutoSuggestClick = async (suggest) => {
     if (!!suggest?.suggestion) {

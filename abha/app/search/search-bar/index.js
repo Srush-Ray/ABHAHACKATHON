@@ -7,7 +7,6 @@ import crossImage from '../../../assets/images/cancel.jpeg';
 import FastImage from 'react-native-fast-image';
 import microphone from '../../../assets/images/microphone.png';
 import Voice from '@react-native-voice/voice';
-// import Card from './card';
 import styles from './styles';
 import { Text } from 'native-base';
 import { scale } from '../../utils';
@@ -43,7 +42,6 @@ const SearchBar = ({
     };
 
     const handleLeftIconPress = () => {
-        // textInputRef.current.focus();
         handleIconPress();
     };
 
@@ -68,8 +66,6 @@ const SearchBar = ({
   const [end, setEnd] = useState('');
   const [started, setStarted] = useState('');
   const [loading, setLoading] = useState(false);
-
-//   const [results, setResults] = useState([]);
 
   const onSpeechStart = (e) => {
     //Invoked when .start() is called without error

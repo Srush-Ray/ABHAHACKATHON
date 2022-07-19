@@ -143,9 +143,7 @@ const VoicePresciptionScreen = () => {
     ) {
       setLoading(false);
     }
-    // if (partialResults.length > 0 && !!partialResults?.[0]) {
-    //   handleInputTextChange(partialResults?.[0]);
-    // }
+
   }, [partialResults?.length, results?.length]);
   useEffect(() => {
     if (loading) {
@@ -171,14 +169,12 @@ const VoicePresciptionScreen = () => {
   const {mutate: fetchPrescriptionVoice, isLoading: loadingSuggestions} =
     useMutation((text) => fetchPrescription({text: text}), {
       onSuccess: data => {
-        console.log('auto', data?.data);
         if (!isEmpty(data?.data)) {
           setPrescription(data?.data);
           setShowResults(true);
         }
       },
       onError: (error) => {
-        console.log(error)
       },
     });
 
@@ -221,16 +217,7 @@ const VoicePresciptionScreen = () => {
           alignItems: 'center',
           justifyContent: 'space-around',
         }}>
-        {/* <TextInput
-          // ref={textInputRef}
-          // autoFocus={autoFocus}
-          // onFocus={handleFocus}
-          defaultValue={inputText}
-          onChangeText={handleInstructionsChange}
-          style={[styles.searchbarText]}
-          placeholder={getPlaceholderText('Instructions')}
-          // placeholderTextColor={colorCongratsRelation}
-        /> */}
+
         <View
           style={{
             flexDirection: 'row',
@@ -258,33 +245,7 @@ const VoicePresciptionScreen = () => {
               }}>{`Input : ${inputText}`}</Text>
           </View>
 
-          {/* <View style={styles.selectView}>
-            <SelectDropdown
-              data={tags}
-              onSelect={(selectedItem, index) => {
-                console.log(selectedItem, index);
-              }}
-              buttonTextAfterSelection={(selectedItem, index) => {
-                return selectedItem;
-              }}
-              rowTextForSelection={(item, index) => {
-                return item;
-              }}
-            />
-
-            <SelectDropdown
-              data={inputText?.split(' ')}
-              onSelect={(selectedItem, index) => {
-                console.log(selectedItem, index);
-              }}
-              buttonTextAfterSelection={(selectedItem, index) => {
-                return selectedItem;
-              }}
-              rowTextForSelection={(item, index) => {
-                return item;
-              }}
-            />
-          </View> */}
+        
         </View>
       )}
 

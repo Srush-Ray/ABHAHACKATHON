@@ -6,7 +6,6 @@ import { scale } from '../../utils';
     
     const styles = StyleSheet.create({
         container: {
-        //   flex: 1,
           flexDirection: 'column',
           alignItems: 'center',
           padding: 5,

@@ -132,7 +132,6 @@ title={`HSP`}
             </Text>
             {qualifications?.raw?.map((q)=>{
                 const data=JSON.parse(q);
-                console.log(data)
                 return <View
                 key={`index${q}`}
                 >

@@ -6,7 +6,6 @@ import { scale } from '../utils';
 
 const styles = StyleSheet.create({
     container: {
-    //   flex: 1,
       flexDirection: 'column',
       alignItems: 'center',
       padding: 5,
@@ -18,7 +17,6 @@ const styles = StyleSheet.create({
     },
     resultHeader:{
       paddingVertical:scale(5),
-      // backgroundColor:'#88a0cc',
       paddingLeft:scale(10),
     },
     suggestTextView:{
