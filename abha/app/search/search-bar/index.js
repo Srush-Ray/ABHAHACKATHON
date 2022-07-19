@@ -3,7 +3,7 @@ import React, { useRef, useState,useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Dimensions, TextInput, TouchableHighlight,TouchableOpacity, View } from 'react-native';
 import searchIcon from '../../../assets/images/search.webp';
-import crossImage from '../../../assets/images/cancel.png';
+import crossImage from '../../../assets/images/cancel.jpeg';
 import FastImage from 'react-native-fast-image';
 import microphone from '../../../assets/images/microphone.png';
 import Voice from '@react-native-voice/voice';

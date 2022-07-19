@@ -26,7 +26,6 @@ import mockData from './mockdata';
 import {isEmpty} from 'lodash';
 import searchMock from './search-mock';
 import SearchCard from './search-cards';
-import rightArrow from '../../assets/images/right-arrow.webp'
 const tags = ['PROBLEM', 'DRUG', 'STRENGTH', 'FREQUENCY', 'DURATION', 'TEST'];
 const SearchScreen = () => {
   const [inputText, setInputText] = useState('');
